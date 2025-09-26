@@ -17,3 +17,7 @@ Projeto Full Stack de um controle simples de produtos em Angular consumindo uma 
  Tela Cadastrar Produto
 
 ![Tela Cadastrar Produto](https://github.com/PcJunioor/Controle-de-Produtos/blob/master/Tela%20Cadastrar%20produtos.jpg)
+
+
+ Tela Detalhar Produto
+ ![Tela Detalhar Produto](https://github.com/PcJunior/Controle-de-Produtos/blob/master/Tela%20Detalhar%20produto.jpg)
