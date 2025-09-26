@@ -1,4 +1,4 @@
-Projeto básico de Controle de Produtos feito em Angular consumindo uma API Restfull feita em Spring Boot Java.
+Projeto Full Stack de um controle simples de produtos em Angular conectando a uma API Restfull feita com Spring Boot Java e utilizando banco de dados MongoDB. Aplicação rodando em um container no docker com redundância.
  
 
 
