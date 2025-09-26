@@ -1,0 +1,110 @@
+/* Estilos base */
+.container {
+  max-width: 1200px;
+}
+
+.card {
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.card-header {
+  padding: 15px 20px;
+  background: linear-gradient(135deg, #3498db, #2c3e50);
+  color: white;
+  font-weight: 600;
+}
+
+.card-body {
+  padding: 25px;
+}
+
+/* Estilos para botões de ação */
+.btn-action {
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+/* textos dos botões */
+i.fas {
+  margin-right: 3px;
+}
+
+.btn-action:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.btn-primary {
+  background: linear-gradient(to right, #0d6efd, #0b5ed7);
+  color: white;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(to right, #0b5ed7, #0a58ca);
+}
+
+.btn-warning {
+  background: linear-gradient(to right, #ffc107, #ff9800);
+  color: #212529;
+}
+
+.btn-warning:hover {
+  background: linear-gradient(to right, #ff9800, #ff8c00);
+}
+
+.btn-danger {
+  background: linear-gradient(to right, #dc3545, #bb2d3b);
+  color: white;
+}
+
+.btn-danger:hover {
+  background: linear-gradient(to right, #bb2d3b, #a52834);
+}
+
+.btn-success {
+  background: linear-gradient(to right, #28a745, #218838);
+  color: white;
+}
+
+.btn-success:hover {
+  background: linear-gradient(to right, #218838, #1e7e34);
+}
+
+/* Marcador discreto */
+.product-marker {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #3498db;
+  margin-right: 15px; /* Mais espaço entre o marcador e o nome */
+}
+
+/* Tabela estilizada */
+.table-hover tbody tr:hover {
+  background-color: rgba(52, 152, 219, 0.05);
+}
+
+.table th {
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+/* Mensagem de lista vazia */
+.text-center {
+  opacity: 0.7;
+}
+
+/* Espaçamento entre botões */
+.d-flex.gap-3 {
+  gap: 5px !important; /* Espaçamento aumentado entre botões */
+}

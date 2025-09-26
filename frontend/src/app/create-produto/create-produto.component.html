@@ -1,0 +1,167 @@
+<div class="container mt-4">
+  <h3 class="text-center mb-4">Cadastro de Produto</h3>
+
+  <div class="row">
+    <!-- Coluna do Formulário -->
+    <div class="col-md-6">
+      <div
+        *ngIf="successMessage"
+        class="alert alert-success alert-dismissible fade show"
+      >
+        {{ successMessage }}
+        <button
+          type="button"
+          class="btn-close"
+          (click)="successMessage = ''"
+        ></button>
+      </div>
+
+      <div
+        *ngIf="errorMessage"
+        class="alert alert-danger alert-dismissible fade show"
+      >
+        {{ errorMessage }}
+        <button
+          type="button"
+          class="btn-close"
+          (click)="errorMessage = ''"
+        ></button>
+      </div>
+
+      <form
+        #produtoForm="ngForm"
+        (ngSubmit)="onSubmit()"
+        [class.disabled]="isLoading"
+      >
+        <!-- Campo Nome do Produto -->
+        <div class="form-group mb-3">
+          <label for="nomeProduto" class="form-label"
+            >Produto: <span class="text-danger">*</span></label
+          >
+          <input
+            type="text"
+            class="form-control"
+            [class.is-invalid]="
+              (formSubmitted || nomeProduto.touched) && nomeProduto.invalid
+            "
+            id="nomeProduto"
+            required
+            [(ngModel)]="produto.nomeProduto"
+            name="nomeProduto"
+            #nomeProduto="ngModel"
+          />
+          <div
+            *ngIf="
+              (formSubmitted || nomeProduto.touched) && nomeProduto.invalid
+            "
+            class="invalid-feedback"
+          >
+            <i class="fas fa-exclamation-circle me-2"></i>Nome do produto é
+            obrigatório
+          </div>
+        </div>
+
+        <!-- Campo Preço -->
+        <div class="form-group mb-4">
+          <label for="preco" class="form-label"
+            >Preço: <span class="text-danger">*</span></label
+          >
+          <div class="input-group">
+            <span class="input-group-text">R$</span>
+            <input
+              type="number"
+              class="form-control"
+              [class.is-invalid]="
+                (formSubmitted || preco.touched) && preco.invalid
+              "
+              id="preco"
+              required
+              step="0.01"
+              min="0.01"
+              [(ngModel)]="produto.preco"
+              name="preco"
+              #preco="ngModel"
+            />
+          </div>
+          <div
+            *ngIf="(formSubmitted || preco.touched) && preco.invalid"
+            class="invalid-feedback"
+          >
+            <i class="fas fa-exclamation-circle me-2"></i>
+            <span *ngIf="preco.errors && preco.errors['required']"
+              >Preço é obrigatório</span
+            >
+            <span *ngIf="preco.errors && preco.errors['min']"
+              >O preço deve ser maior que zero</span
+            >
+          </div>
+        </div>
+
+        <!-- Botões -->
+        <div class="button-group d-flex gap-2">
+          <!-- Botão de cadastrar com wrapper para capturar clique -->
+          <div class="position-relative flex-grow-1">
+            <button
+              type="submit"
+              [disabled]="isLoading || produtoForm.invalid"
+              class="btn btn-success btn-action w-100"
+            >
+              <span *ngIf="!isLoading"
+                ><i class="fas fa-save me-2"></i>Cadastrar</span
+              >
+              <span *ngIf="isLoading">Enviando...</span>
+            </button>
+
+            <!-- Overlay transparente para capturar clique quando desabilitado -->
+            <div
+              *ngIf="produtoForm.invalid"
+              class="position-absolute top-0 start-0 w-100 h-100"
+              style="cursor: pointer; z-index: 10"
+              (click)="forceValidation()"
+            ></div>
+          </div>
+
+          <button
+            type="button"
+            [disabled]="isLoading"
+            class="btn btn-secondary btn-action flex-grow-1"
+            (click)="resetForm(produtoForm)"
+          >
+            <i class="fas fa-broom me-2"></i>Limpar
+          </button>
+        </div>
+
+        <div *ngIf="isLoading" class="loading-indicator mt-3">
+          <div class="d-flex align-items-center">
+            <div
+              class="spinner-border spinner-border-sm text-primary me-2"
+              role="status"
+            ></div>
+            <span>Enviando dados, por favor aguarde...</span>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <!-- Coluna do Card da Última Publicação -->
+    <div class="col-md-6">
+      <div *ngIf="ultimoProduto" class="card shadow-sm last-product-card">
+        <div class="card-header">
+          <h5 class="mb-0">Último Produto Cadastrado</h5>
+        </div>
+        <div class="card-body">
+          <h2 class="card-title">{{ ultimoProduto.nomeProduto }}</h2>
+          <div class="mb-2">
+            <span class="badge">Preço:</span>
+            <p class="card-text fs-4 mt-2">
+              R$ {{ ultimoProduto.preco | number : "1.2-2" }}
+            </p>
+          </div>
+          <div class="text-end mt-3">
+            <small class="text-muted">Cadastrado agora mesmo</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

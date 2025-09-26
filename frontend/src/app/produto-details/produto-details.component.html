@@ -1,0 +1,66 @@
+<div class="container mt-4">
+  <h3 class="text-center mb-4">Detalhes do Produto</h3>
+
+  <div class="row">
+    <!-- Coluna dos Detalhes -->
+    <div class="col-md-6">
+      <div class="card shadow-sm last-product-card">
+        <div class="card-header">
+          <h5 class="mb-0">Detalhes do Produto</h5>
+        </div>
+        <div class="card-body" *ngIf="produto">
+          <h2 class="card-title">{{ produto.nomeProduto }}</h2>
+          <div class="mb-2">
+            <span class="badge">Preço:</span>
+            <p class="card-text fs-4 mt-2">
+              R$ {{ produto.preco | number : "1.2-2" }}
+            </p>
+          </div>
+          <div class="text-end mt-3">
+            <small class="text-muted">ID: {{ produto.id }}</small>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Coluna das Ações -->
+    <div class="col-md-6">
+      <div class="card shadow-sm">
+        <div class="card-header">
+          <h5 class="mb-0">Ações</h5>
+        </div>
+        <div class="card-body">
+          <div class="button-group">
+            <button (click)="edit()" class="btn btn-warning btn-lg btn-action">
+              <i class="fas fa-edit me-2"></i>Editar Produto
+            </button>
+            <button (click)="list()" class="btn btn-primary btn-lg btn-action">
+              <i class="fas fa-list me-2"></i>Listar Produtos
+            </button>
+          </div>
+        </div>
+        <div class="card-footer text-muted">
+          <small>Clique em uma ação para executar</small>
+        </div>
+      </div>
+
+      <div class="card shadow-sm mt-4">
+        <div class="card-header">
+          <h5 class="mb-0">Informações</h5>
+        </div>
+        <div class="card-body">
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <i class="fas fa-info-circle text-primary me-2"></i>
+              Este produto está disponível para venda
+            </li>
+            <li class="list-group-item">
+              <i class="fas fa-history text-info me-2"></i>
+              Cadastrado em: {{ produto?.dataCadastro | date : "dd/MM/yyyy" }}
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

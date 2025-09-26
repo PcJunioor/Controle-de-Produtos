@@ -1,0 +1,103 @@
+/* Estilos base */
+.container {
+  max-width: 1200px;
+}
+
+.card {
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 100%;
+  border: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.card-header {
+  padding: 15px 20px;
+  background: linear-gradient(135deg, #3498db, #2c3e50);
+  color: white;
+  font-weight: 600;
+}
+
+.card-body {
+  padding: 25px;
+}
+
+.last-product-card .card-header {
+  background: linear-gradient(135deg, #8e44ad, #3498db);
+}
+
+.badge {
+  background-color: rgba(52, 152, 219, 0.2);
+  color: #2c3e50;
+  font-size: 0.9rem;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-weight: 600;
+}
+/* margem para os botões */
+i.fas {
+  margin-right: 5px;
+}
+/* Estilos para os botões de ação */
+.btn-action {
+  width: 100%; /* Garante mesma largura */
+  padding: 12px 0; /* Ajuste vertical do padding */
+  border-radius: 8px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+/* Novo container para os botões */
+.button-group {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Espaçamento entre botões */
+.button-group .btn-action {
+  margin-bottom: 1rem; /* 24px de espaço */
+}
+
+/* Remove margem extra do último botão */
+.button-group .btn-action:last-child {
+  margin-bottom: 0;
+}
+
+.btn-action:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.btn-warning {
+  background: linear-gradient(to right, #ffc107, #ff9800);
+  color: #212529;
+}
+
+.btn-warning:hover {
+  background: linear-gradient(to right, #ff9800, #ff8c00);
+}
+
+.btn-primary {
+  background: linear-gradient(to right, #0d6efd, #0b5ed7);
+  color: white;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(to right, #0b5ed7, #0a58ca);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .row {
+    flex-direction: column;
+  }
+
+  .col-md-6 {
+    margin-bottom: 25px;
+  }
+}

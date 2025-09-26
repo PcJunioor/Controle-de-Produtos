@@ -1,0 +1,46 @@
+version: '3.8'
+
+services:
+  mongodb:
+    image: mongo:latest
+    container_name: meu-mongodb
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+    networks:
+      - minha-rede
+    restart: unless-stopped
+
+  backend:
+    build: .
+    container_name: containerbackend
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_DATA_MONGODB_URI: "mongodb://mongodb:27017/crud"
+    networks:
+      - minha-rede
+    depends_on:
+      - mongodb
+    restart: unless-stopped
+
+  backend-2:
+    build: .
+    container_name: containerbackend2
+    ports:
+      - "8081:8080"
+    environment:
+      SPRING_DATA_MONGODB_URI: "mongodb://mongodb:27017/crud"
+    networks:
+      - minha-rede
+    depends_on:
+      - mongodb
+    restart: unless-stopped
+
+networks:
+  minha-rede:
+    driver: bridge
+
+volumes:
+  mongo-data:
