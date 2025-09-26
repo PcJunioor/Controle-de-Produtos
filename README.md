@@ -1,4 +1,4 @@
-Projeto Full Stack de um controle simples de produtos em Angular conectando a uma API Restfull feita com Spring Boot Java e utilizando banco de dados MongoDB. Aplicação rodando em um container no docker com redundância.
+Projeto Full Stack de um controle simples de produtos em Angular consumindo uma API Restfull feita com Spring Boot Java e utilizando banco de dados MongoDB. Aplicação rodando em um container no docker com redundância.
  
 
 
